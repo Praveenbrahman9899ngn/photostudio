@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Photo Frames & Digital Studio | Burari, Delhi</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FAF6F0',
+              sand: '#F4ECE1',
+              tan: '#E8DBCB',
+              gold: '#C59A58',
+              goldDark: '#A87D38',
+              charcoal: '#1A1816',
+              darkcard: '#22201D',
+              muted: '#7C756D',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Smooth Hover Utilities */
+    .hover-glow {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hover-glow:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -10px rgba(197, 154, 88, 0.25);
+    }
+
+    .img-zoom-container {
+      overflow: hidden;
+    }
+    .img-zoom-container img {
+      transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .img-zoom-container:hover img {
+      transform: scale(1.08);
+    }
+
+    /* Luxury Frame Border */
+    .photo-frame-border {
+      position: relative;
+    }
+    .photo-frame-border::after {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border: 1px solid #C59A58;
+      pointer-events: none;
+      opacity: 0.4;
+      transition: all 0.3s ease;
+    }
+    .photo-frame-border:hover::after {
+      inset: -6px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="bg-brand-cream text-brand-charcoal font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+  <!-- TOP BAR (Address & Direct Call) -->
+  <div class="bg-brand-charcoal text-white text-xs border-b border-brand-charcoal/80 py-2.5 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+      <div class="flex items-center space-x-6 text-stone-300">
+        <span class="flex items-center gap-2 truncate">
+          <i class="fa-solid fa-location-dot text-brand-gold"></i>
+           Street No. 7, Sant Nagar, Burari, Delhi 110084
+        </span>
+        <span class="hidden lg:flex items-center gap-2">
+          <i class="fa-solid fa-clock text-brand-gold"></i> Open Everyday: 9:30 AM – 9:30 PM
+        </span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="tel:987654321" class="hover:text-brand-gold transition-colors flex items-center gap-1.5 font-medium">
+          <i class="fa-solid fa-phone text-brand-gold"></i> 987654321
+        </a>
+        <span class="text-stone-500">|</span>
+        <a href="#contact" class="hover:text-brand-gold font-medium uppercase tracking-wider text-[11px] transition-colors">
+          Contact For Inquiries
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY NAVIGATION -->
+  <header class="sticky top-0 z-50 bg-brand-cream/95 backdrop-blur-md border-b border-brand-tan/60 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+      <a href="#" class="group flex flex-col">
+        <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brand-charcoal group-hover:text-brand-gold transition-colors">
+          DEMO
+        </span>
+        <span class="text-[10px] tracking-[0.25em] uppercase text-brand-muted -mt-1 font-semibold group-hover:text-brand-charcoal transition-colors">
+          Photo Frames & Digital Studio
+        </span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+        <a href="#home" class="hover:text-brand-gold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-brand-gold after:transition-all">Home</a>
+        <a href="#about" class="hover:text-brand-gold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-brand-gold after:transition-all">About Us</a>
+        <a href="#services" class="hover:text-brand-gold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-brand-gold after:transition-all">Our Services</a>
+        <a href="#framing" class="hover:text-brand-gold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-brand-gold after:transition-all">Frames & Lab</a>
+        <a href="#gallery" class="hover:text-brand-gold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-brand-gold after:transition-all">Gallery</a>
+        <a href="#contact" class="hover:text-brand-gold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-brand-gold after:transition-all">Find Us</a>
+      </div>
+
+      <!-- Action Button with extra hover -->
+      <div class="flex items-center space-x-3">
+        <a href="#contact" 
+           class="relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 bg-brand-gold rounded-none hover:bg-brand-charcoal shadow-md hover:shadow-xl hover:-translate-y-0.5 border border-brand-gold hover:border-brand-charcoal group">
+          <span class="relative z-10 flex items-center gap-2">
+            <span>Contact Studio</span>
+            <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </a>
+        
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="mobileMenuBtn" class="lg:hidden p-2 text-brand-charcoal hover:text-brand-gold transition-colors" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-brand-sand border-b border-brand-tan px-6 py-5 flex flex-col space-y-4">
+      <a href="#home" class="mobile-nav-link text-brand-charcoal font-medium">Home</a>
+      <a href="#about" class="mobile-nav-link text-brand-charcoal font-medium">About Us</a>
+      <a href="#services" class="mobile-nav-link text-brand-charcoal font-medium">Services</a>
+      <a href="#framing" class="mobile-nav-link text-brand-charcoal font-medium">Framing & Lab</a>
+      <a href="#gallery" class="mobile-nav-link text-brand-charcoal font-medium">Gallery</a>
+      <a href="#contact" class="mobile-nav-link text-brand-charcoal font-medium">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (Matching Layout from Mockup) -->
+  <section id="home" class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden bg-gradient-to-b from-brand-sand/60 to-brand-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-tan/50 border border-brand-gold/30 text-xs font-semibold tracking-widest uppercase text-brand-goldDark">
+            <i class="fa-solid fa-gem text-[10px]"></i> Welcome to DEMO Digital Studio
+          </div>
+          <h1 class="font-serif text-4xl sm:text-5xl xl:text-6xl text-brand-charcoal leading-[1.15] font-normal">
+            Wedding & Portrait Studio <span class="italic font-serif text-brand-gold">Based in Burari, Delhi</span>
+          </h1>
+          <p class="text-brand-muted text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+            From timeless wedding albums and elegant bridal portraits to custom high-grade photo framing and digital restoration — we turn your special milestones into everlasting wall art.
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#contact" 
+               class="w-full sm:w-auto px-8 py-4 bg-brand-gold text-white text-xs font-bold uppercase tracking-widest hover:bg-brand-charcoal transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 text-center border border-brand-gold group">
+              <span class="flex items-center justify-center gap-2">
+                <span>Book / Contact Us</span>
+                <i class="fa-solid fa-arrow-trend-up text-xs group-hover:rotate-45 transition-transform duration-300"></i>
+              </span>
+            </a>
+            
+            <a href="tel:987654321" 
+               class="w-full sm:w-auto px-7 py-4 bg-white/80 hover:bg-white text-brand-charcoal border border-brand-tan text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:border-brand-gold hover:-translate-y-1 text-center shadow-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-phone text-brand-gold"></i>
+              <span>987654321</span>
+            </a>
+          </div>
+
+          <!-- Feature Bullets -->
+          <div class="pt-6 grid grid-cols-2 gap-4 border-t border-brand-tan/80 text-left">
+            <div class="flex items-center gap-2.5">
+              <span class="h-6 w-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-goldDark text-xs"><i class="fa-solid fa-check"></i></span>
+              <span class="text-xs font-semibold text-brand-charcoal tracking-wide">Custom Framing Studio</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="h-6 w-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-goldDark text-xs"><i class="fa-solid fa-check"></i></span>
+              <span class="text-xs font-semibold text-brand-charcoal tracking-wide">Instant Passport & Lab Print</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Photo Mosaic (Mockup Staggered Framing) -->
+        <div class="lg:col-span-7">
+          <div class="grid grid-cols-12 gap-3 sm:gap-4 items-center max-w-2xl mx-auto">
+            
+            <!-- Column 1 -->
+            <div class="col-span-4 space-y-3 sm:space-y-4">
+              <div class="img-zoom-container rounded-sm shadow-md bg-stone-200 aspect-[3/4] relative group">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Wedding couple photoshoot" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-brand-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div class="img-zoom-container rounded-sm shadow-md bg-stone-200 aspect-square group">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Portrait photography" class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <!-- Column 2 (Taller Main) -->
+            <div class="col-span-5 space-y-3 sm:space-y-4 -mt-4 sm:-mt-8">
+              <div class="photo-frame-border img-zoom-container rounded-sm shadow-2xl bg-stone-200 aspect-[4/5] group">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Bridal portrait bride and groom" class="w-full h-full object-cover">
+              </div>
+              <div class="bg-white p-4 shadow-lg border border-brand-tan/80 text-center">
+                <p class="font-serif italic text-sm text-brand-goldDark">"Moments captured forever."</p>
+                <p class="text-[10px] uppercase font-bold tracking-widest text-brand-muted mt-1">Delhi • Burari</p>
+              </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="col-span-3 space-y-3 sm:space-y-4">
+              <div class="img-zoom-container rounded-sm shadow-md bg-stone-200 aspect-square group">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80" alt="Headshot photography" class="w-full h-full object-cover">
+              </div>
+              <div class="img-zoom-container rounded-sm shadow-md bg-stone-200 aspect-[3/4] group">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80" alt="Framed memories photo" class="w-full h-full object-cover">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTERS / STATS SECTION (Exact Layout from Mockup) -->
+  <section class="py-14 bg-brand-cream border-y border-brand-tan/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="text-center mb-10">
+        <span class="text-xs uppercase font-bold tracking-[0.25em] text-brand-gold">WHY CHOOSE US</span>
+        <h2 class="font-serif text-3xl md:text-4xl text-brand-charcoal mt-1">The Leading Photo Studio In Sant Nagar, Burari</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Stat Card 1 -->
+        <div class="bg-brand-sand/60 p-8 text-center border border-brand-tan/70 hover-glow group transition-all">
+          <div class="font-serif text-4xl sm:text-5xl font-bold text-brand-gold group-hover:scale-105 transition-transform duration-300">
+            18+
+          </div>
+          <div class="mt-2 text-sm uppercase tracking-wider font-semibold text-brand-charcoal">
+            Photography Services
+          </div>
+          <p class="mt-2 text-xs text-brand-muted leading-relaxed">
+            Weddings, portraits, studio headshots, commercial, & video events.
+          </p>
+        </div>
+
+        <!-- Stat Card 2 -->
+        <div class="bg-brand-sand/60 p-8 text-center border border-brand-tan/70 hover-glow group transition-all">
+          <div class="font-serif text-4xl sm:text-5xl font-bold text-brand-gold group-hover:scale-105 transition-transform duration-300">
+            15+
+          </div>
+          <div class="mt-2 text-sm uppercase tracking-wider font-semibold text-brand-charcoal">
+            Years Experience
+          </div>
+          <p class="mt-2 text-xs text-brand-muted leading-relaxed">
+            Preserving precious moments with master lighting & craftsmanship.
+          </p>
+        </div>
+
+        <!-- Stat Card 3 -->
+        <div class="bg-brand-sand/60 p-8 text-center border border-brand-tan/70 hover-glow group transition-all">
+          <div class="font-serif text-4xl sm:text-5xl font-bold text-brand-gold group-hover:scale-105 transition-transform duration-300">
+            5000+
+          </div>
+          <div class="mt-2 text-sm uppercase tracking-wider font-semibold text-brand-charcoal">
+            Happy Clients
+          </div>
+          <p class="mt-2 text-xs text-brand-muted leading-relaxed">
+            Families, brides, couples, and corporate professionals across Delhi.
+          </p>
+        </div>
+
+        <!-- Stat Card 4 -->
+        <div class="bg-brand-sand/60 p-8 text-center border border-brand-tan/70 hover-glow group transition-all">
+          <div class="font-serif text-4xl sm:text-5xl font-bold text-brand-gold group-hover:scale-105 transition-transform duration-300">
+            100%
+          </div>
+          <div class="mt-2 text-sm uppercase tracking-wider font-semibold text-brand-charcoal">
+            Custom Framing
+          </div>
+          <p class="mt-2 text-xs text-brand-muted leading-relaxed">
+            Handcrafted frames, canvas enlargements, and archival album prints.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US SECTION (Matching Layout from Mockup) -->
+  <section id="about" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Image Composition -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="photo-frame-border img-zoom-container bg-stone-100 shadow-xl w-4/5 ml-0">
+              <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=80" alt="Photographer in studio" class="w-full h-[380px] object-cover">
+            </div>
+            
+            <div class="absolute -bottom-10 right-0 w-3/5 shadow-2xl border-4 border-white img-zoom-container">
+              <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80" alt="Wedding bride and groom photoshoot" class="w-full h-[260px] object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="lg:col-span-6 space-y-6 pt-10 lg:pt-0">
+          <span class="text-xs uppercase font-bold tracking-[0.25em] text-brand-gold">ABOUT OUR STUDIO</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-charcoal leading-tight">
+            We Are Creative And Professional Photographers
+          </h2>
+          <p class="text-brand-muted text-base leading-relaxed">
+            Welcome to <strong class="text-brand-charcoal">DEMO Photo Frames & Digital Studio</strong>, conveniently situated at Sant Nagar, Burari, Delhi. With a relentless passion for storytelling and artisanal image finishing, we offer comprehensive photographic, videography, and framing services under one roof.
+          </p>
+          <p class="text-brand-muted text-base leading-relaxed">
+            Whether you need a quick biometric passport photograph, an opulent wedding visual narrative, commercial product catalogs, or vintage family restoration preserved inside custom wooden frames — our specialized lab guarantees pristine quality.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-gold text-lg"></i>
+              <span class="text-sm font-semibold text-brand-charcoal">Quality Products</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-gold text-lg"></i>
+              <span class="text-sm font-semibold text-brand-charcoal">Custom Photo Frames</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-gold text-lg"></i>
+              <span class="text-sm font-semibold text-brand-charcoal">High-Resolution Printing</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-gold text-lg"></i>
+              <span class="text-sm font-semibold text-brand-charcoal">Fast Lab Turnaround</span>
+            </div>
+          </div>
+
+          <div class="pt-4 flex flex-wrap gap-4">
+            <a href="#contact" 
+               class="px-8 py-3.5 bg-brand-gold text-white text-xs font-bold uppercase tracking-widest hover:bg-brand-charcoal transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 border border-brand-gold group inline-flex items-center gap-2">
+              <span>Contact Us For Details</span>
+              <i class="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <a href="#services" 
+               class="px-8 py-3.5 bg-brand-sand text-brand-charcoal text-xs font-bold uppercase tracking-widest hover:bg-brand-tan transition-all duration-300 border border-brand-tan inline-flex items-center gap-2">
+              <span>View All Services</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION (All Listed Services Included - Zero Hardcoded Prices) -->
+  <section id="services" class="py-20 bg-brand-cream border-t border-brand-tan/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs uppercase font-bold tracking-[0.25em] text-brand-gold">OUR EXPERTISE</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-charcoal mt-1">We Provide Best Professional Services</h2>
+        <p class="text-brand-muted text-sm sm:text-base mt-3">
+          Explore our complete range of specialized photography and lab services. For quotations and customized packages, please get in touch with our studio team.
+        </p>
+
+        <!-- Service Category Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 mt-8">
+          <button onclick="filterServices('all')" class="service-tab-btn active px-4 py-2 text-xs font-bold uppercase tracking-wider bg-brand-charcoal text-white transition-all">All Services</button>
+          <button onclick="filterServices('shoots')" class="service-tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider bg-brand-sand text-brand-charcoal hover:bg-brand-tan transition-all">Photography & Video</button>
+          <button onclick="filterServices('lab')" class="service-tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider bg-brand-sand text-brand-charcoal hover:bg-brand-tan transition-all">Framing, Albums & Lab</button>
+        </div>
+      </div>
+
+      <!-- Services Grid -->
+      <div id="servicesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+        <!-- 1. Wedding and Engagement -->
+        <div class="service-card shoots bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Wedding and Engagement" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-charcoal/80 text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Shoots</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Wedding & Engagement</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Complete pre-wedding, engagement ceremonies, and grand wedding day visual storytelling with cinematics.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Custom Packages</span>
+              <a href="#contact" onclick="setContactSubject('Wedding and Engagement')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Bridal Photography -->
+        <div class="service-card shoots bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80" alt="Bridal photography" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-charcoal/80 text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Shoots</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Bridal Photography</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Capturing every intricate bridal detail, jewelry highlights, makeup elegance, and heartfelt emotions.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Tailored Sessions</span>
+              <a href="#contact" onclick="setContactSubject('Bridal Photography')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Headshots and Portraits -->
+        <div class="service-card shoots bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80" alt="Headshots and portraits" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-charcoal/80 text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Studio</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Headshots & Portraits</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Professional modeling portfolios, acting headshots, casting calls, and personal profile pictures.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Studio Lighting</span>
+              <a href="#contact" onclick="setContactSubject('Headshots and Portraits')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Photo Framing (Signature Service) -->
+        <div class="service-card lab bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=80" alt="Photo Framing" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-gold text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Framing Studio</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Photo Framing</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Wide selection of wooden, acrylic, synthetic, gold leaf, and synthetic frames crafted to custom dimensions.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">All Sizes In Shop</span>
+              <a href="#contact" onclick="setContactSubject('Photo Framing')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Photo Albums -->
+        <div class="service-card lab bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80" alt="Photo Albums" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-gold text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Lab / Print</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Premium Photo Albums</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Lay-flat flush mount wedding books, velvet covers, metallic pages, and heirloom keepsake albums.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Custom Design</span>
+              <a href="#contact" onclick="setContactSubject('Photo Albums')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Passport Photography -->
+        <div class="service-card lab bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80" alt="Passport photography" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-charcoal/80 text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Instant</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Passport Photography</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Instant delivery for Indian Passport, VISA specifications (US, Schengen, Canada, UK), OCI, and ID cards.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Instant Print</span>
+              <a href="#contact" onclick="setContactSubject('Passport Photography')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Videography Services -->
+        <div class="service-card shoots bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1579632652768-6cb9dcf85912?auto=format&fit=crop&w=700&q=80" alt="Videography Services" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-charcoal/80 text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Video</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Videography Services</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                4K Ultra-HD cinematography, cinematic teaser highlights, drone aerial shots, and live event broadcasting.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Cinematic 4K</span>
+              <a href="#contact" onclick="setContactSubject('Videography Services')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Commercial & Corporate Photography -->
+        <div class="service-card shoots bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=700&q=80" alt="Corporate photography" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-charcoal/80 text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Corporate</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Corporate & Commercial</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Executive team headshots, annual meets, company profile branding, and commercial advertising imagery.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">B2B Coverage</span>
+              <a href="#contact" onclick="setContactSubject('Commercial & Corporate Photography')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Couples & Family & Group Photography -->
+        <div class="service-card shoots bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=700&q=80" alt="Family and group photography" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-charcoal/80 text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Studio / Outdoor</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Couples, Family & Group</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Maternity shoots, warm multigenerational family reunions, anniversary sessions, and newborn portraits.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Family Heirlooms</span>
+              <a href="#contact" onclick="setContactSubject('Couples and Family Photography')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Events and Parties -->
+        <div class="service-card shoots bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=700&q=80" alt="Events and Parties" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-charcoal/80 text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Events</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Events & Parties</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Birthday parties, anniversaries, thread ceremonies, convocation, and festival gatherings covered in full.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Live Coverage</span>
+              <a href="#contact" onclick="setContactSubject('Events and Parties')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Photo Restoration & Retouching -->
+        <div class="service-card lab bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80" alt="Photo restoration" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-gold text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Digital Lab</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Photo Restoration & Retouching</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Repairing damaged, scratched, or faded old photos. Skin retouching, background removal, and colorization.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Digital Magic</span>
+              <a href="#contact" onclick="setContactSubject('Photo Restoration & Retouching')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Photo Printing & Enlargements -->
+        <div class="service-card lab bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=700&q=80" alt="Photo printing enlargements" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-gold text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Lab Print</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Printing & Enlargements</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Large format glossy, matte, lustre prints, archival canvas wraps, and fine-art museum quality printing.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">All Dimensions</span>
+              <a href="#contact" onclick="setContactSubject('Photo Printing & Enlargements')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. Property & Product Photography -->
+        <div class="service-card shoots bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80" alt="Property and Product photography" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-charcoal/80 text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Commercial</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Property & Product Photography</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                High-dynamic-range real estate interior shoots, architecture visuals, and clean studio e-commerce catalog photos.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Catalogs & Spaces</span>
+              <a href="#contact" onclick="setContactSubject('Property & Product Photography')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. In-Studio Portraiture Sessions -->
+        <div class="service-card shoots bg-white border border-brand-tan/70 hover-glow flex flex-col justify-between group overflow-hidden">
+          <div class="img-zoom-container h-52 w-full relative">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=700&q=80" alt="Portrait Photography Studio" class="w-full h-full object-cover">
+            <div class="absolute top-3 right-3 bg-brand-gold text-white text-[10px] tracking-wider uppercase font-semibold px-2.5 py-1">Studio Session</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors">Portrait Photography</h3>
+              <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+                Artistic dramatic lighting, personal creative concepts, beauty photography, and high-fashion editorial shots.
+              </p>
+            </div>
+            <div class="pt-5 mt-4 border-t border-brand-sand flex items-center justify-between">
+              <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold">Creative Lighting</span>
+              <a href="#contact" onclick="setContactSubject('Portrait Photography')" class="text-xs font-bold text-brand-charcoal hover:text-brand-gold flex items-center gap-1 group-hover:translate-x-1 transition-all">
+                Contact Us <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Banner note indicating price policy -->
+      <div class="mt-14 p-6 bg-brand-sand/80 border border-brand-gold/40 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-left">
+          <h4 class="font-serif text-lg font-bold text-brand-charcoal">Looking for tailored pricing or a custom package?</h4>
+          <p class="text-xs text-brand-muted mt-0.5">Every shoot and framing dimension has unique requirements. We offer personalized quotes via direct consultation.</p>
+        </div>
+        <a href="#contact" class="whitespace-nowrap px-6 py-3 bg-brand-charcoal text-white hover:bg-brand-gold text-xs uppercase tracking-widest font-bold transition-all duration-300 shadow hover:shadow-lg">
+          Contact Us For Quotes
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURE SPOTLIGHT: PHOTO FRAMES & LAB (Custom Burari Studio Special) -->
+  <section id="framing" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs uppercase font-bold tracking-[0.25em] text-brand-gold">MASTER CRAFTSMANSHIP</span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-brand-charcoal">
+            Custom Framing & Archival Photo Lab in Delhi
+          </h2>
+          <p class="text-brand-muted text-sm sm:text-base leading-relaxed">
+            At <strong class="text-brand-charcoal">DEMO Photo Frames</strong>, we don’t just take photographs — we create finished centerpieces for your walls. Visit our Sant Nagar studio to inspect our vast array of frame mouldings:
+          </p>
+
+          <ul class="space-y-3 text-sm text-brand-charcoal">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-gem text-brand-gold mt-1"></i>
+              <span><strong>Gold & Antique Moldings:</strong> Traditional and ornate frames suited for wedding portraits & family shrines.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-gem text-brand-gold mt-1"></i>
+              <span><strong>Minimalist Modern Frames:</strong> Sleek black, white, and natural wooden finishes with archival acid-free mounts.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-gem text-brand-gold mt-1"></i>
+              <span><strong>Canvas & Acrylic Mounts:</strong> Borderless floating frames and ultra-high-definition acrylic glass plaques.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-gem text-brand-gold mt-1"></i>
+              <span><strong>Old Photo Restoration:</strong> Bringing worn and torn pictures of your ancestors back to life with state-of-the-art retouching.</span>
+            </li>
+          </ul>
+
+          <div class="pt-4">
+            <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-gold text-white text-xs font-bold uppercase tracking-widest hover:bg-brand-charcoal transition-all shadow hover:shadow-xl">
+              <span>Contact For Framing Consultation</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <div class="img-zoom-container rounded-sm shadow-md bg-stone-100 aspect-[4/5] group">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80" alt="Framed wall art gallery" class="w-full h-full object-cover">
+              </div>
+              <div class="img-zoom-container rounded-sm shadow-md bg-stone-100 aspect-square group">
+                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="Custom photo album showcase" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div class="space-y-4 pt-8">
+              <div class="img-zoom-container rounded-sm shadow-md bg-stone-100 aspect-square group">
+                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Art frame molding close up" class="w-full h-full object-cover">
+              </div>
+              <div class="img-zoom-container rounded-sm shadow-md bg-stone-100 aspect-[4/5] group">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Wedding couple print" class="w-full h-full object-cover">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SHOWCASE SECTION (Mockup Layout) -->
+  <section id="gallery" class="py-20 bg-brand-cream border-t border-brand-tan/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs uppercase font-bold tracking-[0.25em] text-brand-gold">OUR PORTFOLIO</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-charcoal mt-1">Discover Our Unique & Creative Photoshoots</h2>
+        <p class="text-brand-muted text-sm sm:text-base mt-3">
+          A glimpse into the authentic weddings, studio portraits, and customized memories created at DEMO Studio.
+        </p>
+      </div>
+
+      <!-- Masonry Style Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        
+        <!-- Gallery Item 1 -->
+        <div class="img-zoom-container relative group aspect-[3/4] bg-stone-200">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Wedding Shoot" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-brand-charcoal/70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 text-white">
+            <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Weddings</span>
+            <p class="font-serif text-lg font-bold">Eternal Promises</p>
+            <a href="#contact" class="mt-2 text-xs font-semibold underline text-white hover:text-brand-gold">Contact For Booking &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Gallery Item 2 -->
+        <div class="img-zoom-container relative group aspect-[3/4] bg-stone-200">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80" alt="Studio Portrait" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-brand-charcoal/70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 text-white">
+            <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Portraits</span>
+            <p class="font-serif text-lg font-bold">Editorial Studio</p>
+            <a href="#contact" class="mt-2 text-xs font-semibold underline text-white hover:text-brand-gold">Contact For Booking &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Gallery Item 3 -->
+        <div class="img-zoom-container relative group aspect-[3/4] bg-stone-200">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Bridal portraiture" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-brand-charcoal/70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 text-white">
+            <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Bridal</span>
+            <p class="font-serif text-lg font-bold">Traditional Radiance</p>
+            <a href="#contact" class="mt-2 text-xs font-semibold underline text-white hover:text-brand-gold">Contact For Booking &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Gallery Item 4 -->
+        <div class="img-zoom-container relative group aspect-[3/4] bg-stone-200">
+          <img src="https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=700&q=80" alt="Family moments" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-brand-charcoal/70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5 text-white">
+            <span class="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Family</span>
+            <p class="font-serif text-lg font-bold">Generations Together</p>
+            <a href="#contact" class="mt-2 text-xs font-semibold underline text-white hover:text-brand-gold">Contact For Booking &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3.5 bg-brand-charcoal text-white hover:bg-brand-gold text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-xl">
+          <span>Schedule Your Session With Us</span>
+          <i class="fa-solid fa-calendar-check text-xs"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS / TRUST (From Mockup: "More than 5000+ Customers Trusted Us") -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs uppercase font-bold tracking-[0.25em] text-brand-gold">CLIENT REVIEWS</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-brand-charcoal mt-1">Trusted By Families Across Delhi NCR</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Review 1 -->
+        <div class="bg-brand-cream/60 p-8 border border-brand-tan/60 relative hover-glow">
+          <div class="flex text-brand-gold text-sm gap-1 mb-4">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-sm text-brand-muted leading-relaxed italic">
+            "We gave our 40-year-old wedding portrait for digital restoration and custom wooden framing.DEMO Studio delivered it looking like it was taken yesterday. Outstanding craftsmanship right here in Burari!"
+          </p>
+          <div class="mt-6 pt-4 border-t border-brand-tan/40 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center font-bold text-brand-goldDark text-sm">
+              RK
+            </div>
+            <div>
+              <h5 class="text-sm font-bold text-brand-charcoal">Rajesh Kumar</h5>
+              <p class="text-[11px] text-brand-muted">Sant Nagar, Burari</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-brand-sand/70 p-8 border border-brand-gold/40 relative hover-glow shadow-md">
+          <div class="flex text-brand-gold text-sm gap-1 mb-4">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-sm text-brand-muted leading-relaxed italic">
+            "They handled both photography and videography for our engagement and wedding. The photo album binding was ultra-luxurious, and the team was so polite and responsive. Highly recommended!"
+          </p>
+          <div class="mt-6 pt-4 border-t border-brand-tan/40 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-gold text-white flex items-center justify-center font-bold text-sm">
+              PS
+            </div>
+            <div>
+              <h5 class="text-sm font-bold text-brand-charcoal">Pooja Sharma</h5>
+              <p class="text-[11px] text-brand-muted">Delhi</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-brand-cream/60 p-8 border border-brand-tan/60 relative hover-glow">
+          <div class="flex text-brand-gold text-sm gap-1 mb-4">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-sm text-brand-muted leading-relaxed italic">
+            "Needed instant US Visa specification passport photos and framing for our family vacation pictures. Fast turnaround, crisp prints, and top quality. The best studio on Bhramkumari Ashram Road."
+          </p>
+          <div class="mt-6 pt-4 border-t border-brand-tan/40 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center font-bold text-brand-goldDark text-sm">
+              AV
+            </div>
+            <div>
+              <h5 class="text-sm font-bold text-brand-charcoal">Amit Verma</h5>
+              <p class="text-[11px] text-brand-muted">Burari, Delhi</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & VISIT SECTION (With Exact Address, Phone, & Form) -->
+  <section id="contact" class="py-20 bg-brand-sand/50 border-t border-brand-tan/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs uppercase font-bold tracking-[0.25em] text-brand-gold">GET IN TOUCH</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-charcoal mt-1">Visit Our Studio Or Send An Inquiry</h2>
+        <p class="text-brand-muted text-sm sm:text-base mt-3">
+          For all pricing, personalized shoot estimates, custom frame sizing, or instant appointments, please contact us directly using the details below or send a quick message.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Contact Information Cards -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Address Card -->
+          <div class="bg-white p-7 border border-brand-tan/80 hover-glow">
+            <div class="flex items-start gap-4">
+              <div class="h-12 w-12 rounded-full bg-brand-gold/15 flex items-center justify-center text-brand-goldDark text-xl shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h4 class="font-serif text-lg font-bold text-brand-charcoal">Studio Location</h4>
+                <p class="text-sm text-brand-muted mt-1 leading-relaxed">
+                  Street No. 7, Bhramkumari Ashram Road,<br />
+                  T- Point Sant Nagar, Sant Nagar,<br />
+                  Burari, Delhi 110084
+                </p>
+                <a href="https://maps.google.com/?q=Shop+No+2+Street+No+7+Bhramkumari+Ashram+Road+Sant+Nagar+Burari+Delhi+110084" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-gold mt-3 hover:text-brand-charcoal transition-colors">
+                  <span>Open in Google Maps</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone Card -->
+          <div class="bg-white p-7 border border-brand-tan/80 hover-glow">
+            <div class="flex items-start gap-4">
+              <div class="h-12 w-12 rounded-full bg-brand-gold/15 flex items-center justify-center text-brand-goldDark text-xl shrink-0">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <h4 class="font-serif text-lg font-bold text-brand-charcoal">Direct Call & WhatsApp</h4>
+                <p class="text-xs text-brand-muted mt-1">Available 9:30 AM to 9:30 PM</p>
+                <a href="tel:987654321" class="block font-serif text-2xl font-bold text-brand-gold hover:text-brand-charcoal transition-colors mt-1">
+                  987654321
+                </a>
+                <div class="mt-3 flex gap-2">
+                  <a href="tel:987654321" class="px-4 py-2 bg-brand-charcoal text-white text-[11px] font-bold uppercase tracking-wider hover:bg-brand-gold transition-colors">
+                    <i class="fa-solid fa-phone mr-1"></i> Call Now
+                  </a>
+                  <a href="https://wa.me/918447611980?text=Hello%20DEMO%20Studio,%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="px-4 py-2 bg-emerald-600 text-white text-[11px] font-bold uppercase tracking-wider hover:bg-emerald-700 transition-colors">
+                    <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Hours -->
+          <div class="bg-brand-charcoal text-white p-7">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-camera text-brand-gold text-lg"></i>
+              <h4 class="font-serif text-lg font-bold">Walk-Ins & Consultations</h4>
+            </div>
+            <p class="text-xs text-stone-300 mt-2 leading-relaxed">
+              Walk right into our Sant Nagar, Burari studio anytime for urgent passport photos, framing consultation, and wedding portfolio viewings.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-7">
+          <div class="bg-white p-8 sm:p-10 border border-brand-tan/80 shadow-sm">
+            <div class="mb-6">
+              <h3 class="font-serif text-2xl font-bold text-brand-charcoal">Send Us An Inquiry</h3>
+              <p class="text-xs text-brand-muted mt-1">Fill out the details below and we will get back to you promptly with availability and customized quote information.</p>
+            </div>
+
+            <form id="studioContactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs uppercase font-bold tracking-wider text-brand-charcoal mb-1">Your Full Name *</label>
+                  <input type="text" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 bg-brand-cream/40 border border-brand-tan focus:border-brand-gold focus:outline-none text-sm transition-colors" />
+                </div>
+                <div>
+                  <label class="block text-xs uppercase font-bold tracking-wider text-brand-charcoal mb-1">Phone Number *</label>
+                  <input type="tel" required placeholder="e.g. 09876543210" class="w-full px-4 py-3 bg-brand-cream/40 border border-brand-tan focus:border-brand-gold focus:outline-none text-sm transition-colors" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs uppercase font-bold tracking-wider text-brand-charcoal mb-1">Select Service Needed *</label>
+                  <select id="serviceSelect" required class="w-full px-4 py-3 bg-brand-cream/40 border border-brand-tan focus:border-brand-gold focus:outline-none text-sm transition-colors">
+                    <option value="">-- Choose a service --</option>
+                    <option value="Wedding & Engagement">Wedding and engagement</option>
+                    <option value="Bridal Photography">Bridal photography</option>
+                    <option value="Photo Framing">Photo framing</option>
+                    <option value="Photo Albums">Photo albums</option>
+                    <option value="Passport Photography">Passport photography</option>
+                    <option value="Photo Enlargements & Printing">Photo enlargements & printing</option>
+                    <option value="Photo Restoration & Retouching">Photo restoration & retouching</option>
+                    <option value="Headshots & Portraits">Headshots and portraits</option>
+                    <option value="Commercial & Corporate">Commercial & corporate photography</option>
+                    <option value="Videography Services">Videography services</option>
+                    <option value="Couples & Family">Couples, family and group</option>
+                    <option value="Events & Parties">Events and parties</option>
+                    <option value="Property & Product">Property & product photography</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs uppercase font-bold tracking-wider text-brand-charcoal mb-1">Preferred Date (Optional)</label>
+                  <input type="date" class="w-full px-4 py-3 bg-brand-cream/40 border border-brand-tan focus:border-brand-gold focus:outline-none text-sm transition-colors" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs uppercase font-bold tracking-wider text-brand-charcoal mb-1">Your Requirements / Message</label>
+                <textarea rows="4" placeholder="Tell us about the event location, framing sizes, or specific requirements..." class="w-full px-4 py-3 bg-brand-cream/40 border border-brand-tan focus:border-brand-gold focus:outline-none text-sm transition-colors"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-4 bg-brand-gold text-white font-bold text-xs uppercase tracking-widest hover:bg-brand-charcoal transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 border border-brand-gold flex items-center justify-center gap-2 group">
+                <span>Submit Inquiry For Consultation</span>
+                <i class="fa-solid fa-paper-plane text-xs group-hover:translate-x-1 transition-transform"></i>
+              </button>
+              
+              <div id="formSuccessMessage" class="hidden p-4 bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs rounded text-center font-medium">
+                Thank you! Your message has been received. The team at DEMO Studio will contact you promptly at your phone number.
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LUXURY DARK FOOTER (Styled exactly like bottom section of mockup) -->
+  <footer class="bg-brand-charcoal text-white pt-16 pb-8 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-stone-800">
+        
+        <!-- Brand / About Column -->
+        <div class="lg:col-span-4 space-y-4">
+          <span class="font-serif text-3xl font-bold tracking-tight text-white block">
+            DEMO STUDIO
+          </span>
+          <p class="text-xs tracking-widest uppercase text-brand-gold font-semibold">
+            Photo Frames & Digital Studio
+          </p>
+          <p class="text-xs text-stone-400 leading-relaxed pr-6">
+            Preserving life’s most cherished stories with refined aesthetics, professional photographic coverage, bespoke handcrafted frames, and archival studio prints in Burari, Delhi.
+          </p>
+          <div class="pt-2 text-xs text-stone-300 space-y-2">
+            <p class="flex items-center gap-2.5">
+              <i class="fa-solid fa-phone text-brand-gold"></i>
+              <a href="tel:987654321" class="hover:text-brand-gold transition-colors">987654321</a>
+            </p>
+            <p class="flex items-start gap-2.5">
+              <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
+              <span> St. No. 7, Bhramkumari Ashram Rd, T-Point Sant Nagar, Burari, Delhi 110084</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="font-serif text-base font-bold text-white tracking-wide border-b border-brand-gold/40 pb-2 inline-block">
+            Quick Links
+          </h4>
+          <ul class="space-y-2 text-xs text-stone-400">
+            <li><a href="#home" class="hover:text-brand-gold transition-colors">Home</a></li>
+            <li><a href="#about" class="hover:text-brand-gold transition-colors">About Studio</a></li>
+            <li><a href="#services" class="hover:text-brand-gold transition-colors">Our Services</a></li>
+            <li><a href="#framing" class="hover:text-brand-gold transition-colors">Photo Frames & Lab</a></li>
+            <li><a href="#gallery" class="hover:text-brand-gold transition-colors">Photo Gallery</a></li>
+            <li><a href="#contact" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Key Services -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="font-serif text-base font-bold text-white tracking-wide border-b border-brand-gold/40 pb-2 inline-block">
+            Popular Services
+          </h4>
+          <ul class="space-y-2 text-xs text-stone-400">
+            <li><a href="#contact" class="hover:text-brand-gold transition-colors">Wedding & Bridal Shoots</a></li>
+            <li><a href="#contact" class="hover:text-brand-gold transition-colors">Headshots & Portraits</a></li>
+            <li><a href="#contact" class="hover:text-brand-gold transition-colors">Custom Photo Framing</a></li>
+            <li><a href="#contact" class="hover:text-brand-gold transition-colors">Instant Passport Photos</a></li>
+            <li><a href="#contact" class="hover:text-brand-gold transition-colors">Photo Restoration & Lab</a></li>
+            <li><a href="#contact" class="hover:text-brand-gold transition-colors">Event Videography (4K)</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact / Inquiries Box (Mockup Newsletter & Contact Area) -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="font-serif text-base font-bold text-white tracking-wide border-b border-brand-gold/40 pb-2 inline-block">
+            Contact Directly
+          </h4>
+          <p class="text-xs text-stone-400 leading-relaxed">
+            Have questions regarding wedding coverage or custom frame sizing? Reach out right away:
+          </p>
+          <div class="pt-2">
+            <a href="tel:987654321" class="block w-full text-center py-3 bg-brand-gold text-white font-bold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-charcoal transition-all">
+              <i class="fa-solid fa-phone mr-1.5"></i> Call: 987654321
+            </a>
+          </div>
+          <div class="pt-1">
+            <a href="#contact" class="block w-full text-center py-2.5 bg-stone-800 text-stone-300 font-semibold text-xs uppercase tracking-wider hover:text-white hover:bg-stone-700 transition-all border border-stone-700">
+              Inquire / Contact Form
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-400 gap-3">
+        <p>&copy; <span id="currentYear"></span> DEMO Photo Frames & Digital Studio. All Rights Reserved.</p>
+        <p class="text-[11px] text-stone-400">
+           Street No. 7, Sant Nagar, Burari, Delhi 110084
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- FLOATING QUICK CALL & WHATSAPP BUTTONS -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <!-- WhatsApp Floating -->
+    <a href="https://wa.me/918447611980?text=Hello%20DEMO%20Photo%20Studio,%20I%20want%20to%20inquire%20about%20your%20services." 
+       target="_blank" 
+       class="w-12 h-12 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-xl hover:scale-110 transition-transform" 
+       title="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <!-- Phone Floating -->
+    <a href="tel:987654321" 
+       class="w-12 h-12 rounded-full bg-brand-gold hover:bg-brand-charcoal text-white flex items-center justify-center text-xl shadow-xl hover:scale-110 transition-transform" 
+       title="Call DEMO Studio">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+  </div>
+
+  <!-- SCRIPT FOR FUNCTIONALITY & INTERACTION -->
+  <script>
+    // Update Copyright Year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Mobile Navigation Drawer Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close Mobile Menu on Click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Service Filtering
+    function filterServices(category) {
+      const cards = document.querySelectorAll('.service-card');
+      const buttons = document.querySelectorAll('.service-tab-btn');
+
+      // Update button styling
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-brand-charcoal', 'text-white');
+        btn.classList.add('bg-brand-sand', 'text-brand-charcoal');
+      });
+      event.target.classList.remove('bg-brand-sand', 'text-brand-charcoal');
+      event.target.classList.add('bg-brand-charcoal', 'text-white');
+
+      // Filter cards
+      cards.forEach(card => {
+        if (category === 'all') {
+          card.classList.remove('hidden');
+        } else if (card.classList.contains(category)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Pass service title straight to Contact Dropdown
+    function setContactSubject(serviceName) {
+      const select = document.getElementById('serviceSelect');
+      if (select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].text.toLowerCase().includes(serviceName.toLowerCase().split(' ')[0])) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
+    // Form submission handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const msg = document.getElementById('formSuccessMessage');
+      msg.classList.remove('hidden');
+      e.target.reset();
+      setTimeout(() => {
+        msg.classList.add('hidden');
+      }, 7000);
+    }
+  </script>
+
+</body>
+</html>
